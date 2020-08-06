@@ -11,7 +11,7 @@
                     <el-form-item prop="checkPass">
                         <el-input type="password" v-model="ruleForm.password" auto-complete="off" placeholder="请输入内容"></el-input>
                     </el-form-item>
-                    <el-button type="primary" @click="logon()">登录</el-button>
+                    <el-button type="primary" @click="logon()"><router-link to="/home" tag="span">登录</router-link></el-button>
                 </el-form>
             </div>
         </div>
