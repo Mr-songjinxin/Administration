@@ -1,0 +1,96 @@
+Element.ui
+
+饿了么团队维护
+
+项目pc端的
+
+MintUI  
+
+移动端
+
+
+vantui   有赞
+
+
+如何继续使用vue-cli2:vue-cli3会覆盖vue-cli2.
+
+全局安装一个桥接工具：
+
+npm install -g @vue/cli-init
+
+
+使用Element.ui
+1：安装：
+cnpm  install element-ui -S
+
+cnpm  install element-ui --save
+
+
+2：配置;
+main.js  入口文件
+
+全局引入方式：全部  
+import ElementUI from 'element-ui'
+
+import "element-ui/lib/theme-chalk/index.css"
+
+Vue.use(ElementUI)
+
+按需引入：
+1：安装 babel-plugin-component
+
+cnpm install babel-plugin-component -D
+
+2:.babelrc 修改为
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2"
+  ],
+  "plugins": [
+    "transform-vue-jsx",
+     "transform-runtime",
+     ["component", [
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]]
+    ]
+
+}
+
+3:main.js  按需引入
+
+import {DatePicker,Button} from 'element-ui' 
+Vue.use(DatePicker);
+Vue.use(Button);
+
+
+配置：
+1：安装sass的依赖包     --save 与--save-dev
+cnpm install sass-loader@7.1.0 --save-dev                （8.0.0） vue-cli2  报错
+cnpm install node-sass --save-dev
+
+2:在build目录下配置：webpack.base.conf.js中配置rules下配置：  可以配也可以不配
+rules下添加
+{
+    test: /\.sass$/,
+    loader: ['style','css','sass'],
+},
+
+
+3：在.vue中style中
+<style lang="scss" scoped></style>
+
+
+
+
+
+
+
