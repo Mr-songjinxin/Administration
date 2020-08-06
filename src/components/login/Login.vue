@@ -4,14 +4,14 @@
         <div class="login">
             <div class="login_box">
                 <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
-                    <p class="logon_title">欢迎登录 - MMALL管理系统</p>
+                    <p class="logon_title"> </p>
                     <el-form-item prop="pass">
                         <el-input type="text" v-model="ruleForm.username" auto-complete="off" placeholder="请输入内容"></el-input>
                     </el-form-item>
                     <el-form-item prop="checkPass">
                         <el-input type="password" v-model="ruleForm.password" auto-complete="off" placeholder="请输入内容"></el-input>
                     </el-form-item>
-                    <el-button type="primary" @click="logon()"><router-link to="/home" tag="span">登录</router-link></el-button>
+                    <el-button type="primary" @click="logon()"><router-link to="/home" tag="span">Login</router-link></el-button>
                 </el-form>
             </div>
         </div>
@@ -25,17 +25,18 @@
         data() {
             var validatePass = (rule,value,callback)=>{
                 if (value==="") {
-                    callback(new Error("请输入账户"))
+                    callback(new Error("Username"))
                 }
             }
             var validatePass2 = (rule,value,callback)=>{
                 if (value==="") {
-                    callback(new Error("请输入密码"))
+                    callback(new Error("Password"))
                 }
             }
             return {
                 ruleForm:{
                     username:"admin",
+
                     password:"admin"
                 },
                 username:"",
